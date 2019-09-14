@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div v-if="loading"  v-cloak>
+           Loding...
+        </div>
+        <div v-else >
+            <section v-if="hasError"  v-cloak>
+                Error! 管理者に連絡してください
+            </section>
+            <section v-else>
+                <div v-for="(v,k) in info" class="currency" v-cloak>
+                {{k}} : {{v.rate_float  | currencyDecimal}}
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
